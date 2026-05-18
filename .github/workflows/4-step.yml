@@ -142,7 +142,8 @@ jobs:
 
       - name: Disable current workflow and enable next one
         run: |
-          gh workflow disable "${{github.workflow}}"
-          gh workflow enable "Step 5"
+          # Avoid failing course progression when workflow names are not resolvable in this fork.
+          gh workflow disable "${{github.workflow}}" || true
+          gh workflow enable "Step 5" || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
