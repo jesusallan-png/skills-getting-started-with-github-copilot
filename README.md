@@ -17,3 +17,4 @@ Remember, it's self-paced so feel free to take a break! ☕️
 pytest
 
 Step 4 refresh: participant display in activity cards.
+Trigger course bot retry - step progression.
