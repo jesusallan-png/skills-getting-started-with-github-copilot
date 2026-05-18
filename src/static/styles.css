@@ -74,6 +74,84 @@ section h3 {
   margin-bottom: 8px;
 }
 
+.participants-section {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #dbe3ee;
+  border-radius: 10px;
+  background-color: #f7f9fc;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.participants-section strong {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #2e4461;
+}
+
+.participants-list {
+  list-style: disc inside;
+  padding-left: 1.2rem;
+  margin: 0;
+  color: #455a64;
+}
+
+.participants-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border: 1px solid #e2eaf2;
+}
+
+.participants-list li::marker {
+  color: #1a237e;
+}
+
+.participant-name {
+  word-break: break-all;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.participant-name {
+  word-break: break-all;
+}
+
+.remove-participant-btn {
+  background: transparent;
+  border: none;
+  color: #c62828;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-participant-btn:hover,
+.remove-participant-btn:focus {
+  background-color: rgba(198, 40, 40, 0.1);
+  color: #b71c1c;
+}
+
+.no-participants {
+  margin-top: 12px;
+  color: #616161;
+  font-style: italic;
+}
+
 .form-group {
   margin-bottom: 15px;
 }

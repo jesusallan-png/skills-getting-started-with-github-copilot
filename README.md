@@ -14,3 +14,11 @@ Remember, it's self-paced so feel free to take a break! ☕️
 
 &copy; 2025 GitHub &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
 
+pytest
+
+Step 4 refresh: participant display in activity cards.
+Trigger course bot retry - step progression.
+
+Step 5 trigger.
+
+# Step 5: Complete - Features and Tests Implemented

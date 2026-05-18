@@ -39,6 +39,42 @@ activities = {
         "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
+    },
+    "Basketball Team": {
+        "description": "Join the school basketball team for drills and games",
+        "schedule": "Mondays and Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 15,
+        "participants": ["laura@mergington.edu"]
+    },
+    "Swimming Club": {
+        "description": "Build endurance and technique in the pool",
+        "schedule": "Tuesdays and Fridays, 5:00 PM - 6:00 PM",
+        "max_participants": 18,
+        "participants": ["mason@mergington.edu"]
+    },
+    "Art Club": {
+        "description": "Explore drawing, painting, and mixed-media projects",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 16,
+        "participants": ["natalie@mergington.edu"]
+    },
+    "Drama Workshop": {
+        "description": "Practice acting, staging, and improvisation skills",
+        "schedule": "Thursdays, 4:00 PM - 6:00 PM",
+        "max_participants": 20,
+        "participants": ["simon@mergington.edu"]
+    },
+    "Debate Society": {
+        "description": "Develop argumentation and public speaking through debate",
+        "schedule": "Wednesdays and Fridays, 4:00 PM - 5:30 PM",
+        "max_participants": 14,
+        "participants": ["murphy@mergington.edu"]
+    },
+    "Science Club": {
+        "description": "Conduct experiments and investigate scientific concepts",
+        "schedule": "Tuesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["zoe@mergington.edu"]
     }
 }
 
@@ -84,3 +120,27 @@ def signup_for_activity(activity_name: str, email: str):
 
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
+
+
+@app.delete("/activities/{activity_name}/participants")
+def remove_participant(activity_name: str, email: str):
+    """Unregister a student from an activity"""
+    email = email.strip().lower()
+
+    # Validate activity exists
+    if activity_name not in activities:
+        raise HTTPException(status_code=404, detail="Activity not found")
+
+    # Validate email format
+    if not is_valid_email(email):
+        raise HTTPException(status_code=400, detail="Invalid email address")
+
+    activity = activities[activity_name]
+    lower_participants = [participant.lower() for participant in activity["participants"]]
+
+    if email not in lower_participants:
+        raise HTTPException(status_code=404, detail="Participant not found in activity")
+
+    index = lower_participants.index(email)
+    activity["participants"].pop(index)
+    return {"message": f"Removed {email} from {activity_name}"}
